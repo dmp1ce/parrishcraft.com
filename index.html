@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parrishcraft — a private survival world</title>
+<meta name="description" content="Parrishcraft: a whitelisted survival Minecraft server for the Parrish family and friends. Join at mc.parrishcraft.com.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9935;&#65039;</text></svg>">
+<style>
+  :root {
+    --bg: #131417;
+    --panel: #1d1f24;
+    --line: #2e3138;
+    --green: #6fdc4f;
+    --green-dark: #3f8f2d;
+    --gold: #ffd84d;
+    --text: #e8e6df;
+    --muted: #9a9890;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: ui-monospace, "Cascadia Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    line-height: 1.6;
+  }
+  main { max-width: 44rem; margin: 0 auto; padding: 3rem 1.25rem 0; }
+  h1 {
+    margin: 0;
+    font-size: clamp(1.9rem, 6vw, 3rem);
+    letter-spacing: 0.14em;
+    color: var(--green);
+    text-shadow: 0 3px 0 var(--green-dark), 0 6px 14px rgba(0,0,0,.6);
+  }
+  .tagline { margin: 0.4rem 0 2.5rem; color: var(--muted); font-size: 1.02rem; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--green);
+    padding: 1.5rem 1.5rem 1.25rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,.45);
+  }
+  .address {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .address code {
+    font-size: clamp(1.15rem, 4.5vw, 1.6rem);
+    font-weight: 700;
+    color: var(--gold);
+    word-break: break-all;
+  }
+  .address button {
+    font: inherit;
+    font-size: 0.85rem;
+    color: var(--bg);
+    background: var(--green);
+    border: none;
+    padding: 0.35rem 0.7rem;
+    cursor: pointer;
+  }
+  .address button:active { transform: translateY(1px); }
+  .meta { margin: 1rem 0 0; color: var(--muted); font-size: 0.92rem; }
+  .meta b { color: var(--text); font-weight: 700; }
+  .est { margin: 0.3rem 0 0; color: var(--muted); font-size: 0.92rem; }
+  h2 {
+    margin: 2.6rem 0 1rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+  ol { margin: 0; padding-left: 1.4rem; }
+  ol li { margin: 0.65rem 0; }
+  ol li::marker { color: var(--gold); font-weight: 700; }
+  .note { margin: 2.2rem 0 0; color: var(--muted); font-size: 0.95rem; }
+  .grass {
+    margin-top: 3.5rem;
+    height: 38px;
+    background:
+      repeating-linear-gradient(90deg, #6fdc4f 0 9px, #64cd46 9px 18px) top / 100% 14px no-repeat,
+      repeating-linear-gradient(90deg, #7a5233 0 9px, #6d4930 9px 18px) bottom / 100% 24px no-repeat;
+  }
+  footer {
+    padding: 1rem 1.25rem 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  a { color: var(--gold); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<main>
+  <h1>PARRISHCRAFT</h1>
+  <p class="tagline">a private survival world for the Parrish family &amp; friends</p>
+
+  <div class="card">
+    <div class="address">
+      <code>mc.parrishcraft.com</code>
+      <button onclick="copyAddr(this)" aria-label="copy the server address">copy</button>
+    </div>
+    <p class="meta"><b>Java 26.3</b> &middot; Survival &middot; Whitelisted &middot; 20 slots</p>
+    <p class="est"><b>New World</b> &mdash; a fresh start, established November 2026.</p>
+  </div>
+
+  <h2>How to join</h2>
+  <ol>
+    <li>Get <b>Minecraft Java 26.3</b> &mdash; MultiMC, Prism, or the official launcher all work.</li>
+    <li>Sign in with your <b>Microsoft account</b> &mdash; the server only accepts real accounts, so nobody can pretend to be you.</li>
+    <li>Add the server: <b>mc.parrishcraft.com</b> &mdash; no port number needed.</li>
+    <li>Ask <b>William or David</b> to whitelist your gamertag &mdash; the door is locked to strangers.</li>
+    <li>Come build something cool. Don&rsquo;t blow up each other&rsquo;s houses.</li>
+  </ol>
+
+  <p class="note">The original Parrishcraft (est. 2022) &mdash; four years of family builds &mdash; still runs for the household. The family votes with their pickaxes.</p>
+
+  <div class="grass" role="presentation"></div>
+</main>
+<footer>&copy; 2026 Parrishcraft &middot; run by the Parrish family</footer>
+<script>
+  function copyAddr(b) {
+    navigator.clipboard.writeText('mc.parrishcraft.com').then(function () {
+      b.textContent = 'copied!';
+      setTimeout(function () { b.textContent = 'copy'; }, 1500);
+    });
+  }
+</script>
+</body>
+</html>
