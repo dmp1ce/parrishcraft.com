@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Parrishcraft — a private survival world</title>
-<meta name="description" content="Parrishcraft: a whitelisted survival Minecraft server for the Parrish family and friends. Join at mc.parrishcraft.com.">
+<title>Parrishcraft — Season 2</title>
+<meta name="description" content="Parrishcraft Season 2: a whitelisted survival Minecraft server for the Parrish family and friends. Join at mc.parrishcraft.com.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9935;&#65039;</text></svg>">
 <style>
   :root {
@@ -97,7 +97,7 @@
 <body>
 <main>
   <h1>PARRISHCRAFT</h1>
-  <p class="tagline">a private survival world for the Parrish family &amp; friends</p>
+  <p class="tagline">Season 2 &mdash; a fresh survival world for the Parrish family &amp; friends</p>
 
   <div class="card">
     <div class="address">
@@ -105,7 +105,7 @@
       <button onclick="copyAddr(this)" aria-label="copy the server address">copy</button>
     </div>
     <p class="meta"><b>Java 26.3</b> &middot; Survival &middot; Whitelisted &middot; 20 slots</p>
-    <p class="est"><b>New World</b> &mdash; a fresh start, established November 2026.</p>
+    <p class="est"><b>Season 2</b> &mdash; a fresh start, established November 2026.</p>
   </div>
 
   <h2>How to join</h2>
@@ -113,21 +113,44 @@
     <li>Get <b>Minecraft Java 26.3</b> &mdash; MultiMC, Prism, or the official launcher all work.</li>
     <li>Sign in with your <b>Microsoft account</b> &mdash; the server only accepts real accounts, so nobody can pretend to be you.</li>
     <li>Add the server: <b>mc.parrishcraft.com</b> &mdash; no port number needed.</li>
-    <li>Ask <b>William or David</b> to whitelist your gamertag &mdash; the door is locked to strangers.</li>
+    <li>Ask <b>David</b> to whitelist your gamertag &mdash; the door is locked to strangers.</li>
     <li>Come build something cool. Don&rsquo;t blow up each other&rsquo;s houses.</li>
   </ol>
 
-  <p class="note">The original Parrishcraft (est. 2022) &mdash; four years of family builds &mdash; still runs for the household. The family votes with their pickaxes.</p>
+  <p class="note"><b>Season 1</b> (2022&ndash;2026) &mdash; the original family world and its four years of builds &mdash; still runs privately for the household. The family votes with their pickaxes.</p>
 
   <div class="grass" role="presentation"></div>
 </main>
-<footer>&copy; 2026 Parrishcraft &middot; run by the Parrish family</footer>
+<footer>&copy; 2022&ndash;2026 Parrishcraft &middot; run by the Parrish family</footer>
 <script>
   function copyAddr(b) {
-    navigator.clipboard.writeText('mc.parrishcraft.com').then(function () {
-      b.textContent = 'copied!';
-      setTimeout(function () { b.textContent = 'copy'; }, 1500);
-    });
+    var addr = 'mc.parrishcraft.com';
+    function done(ok) {
+      b.textContent = ok ? 'copied!' : 'select + ctrl-c';
+      setTimeout(function () { b.textContent = 'copy'; }, 1600);
+    }
+    function fallbackCopy(text) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try {
+        return document.execCommand('copy');
+      } finally {
+        document.body.removeChild(ta);
+      }
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(addr).then(
+        function () { done(true); },
+        function () { done(fallbackCopy(addr)); }
+      );
+    } else {
+      done(fallbackCopy(addr));
+    }
   }
 </script>
 </body>
